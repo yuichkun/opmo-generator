@@ -3,6 +3,7 @@
         "module": "commonjs",
         "noImplicitAny": true,
         "outDir": "./lib",
+        "moduleResolution": "node",
         "sourceMap": true
     },
     "include": [
