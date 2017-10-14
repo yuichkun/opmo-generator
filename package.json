@@ -1,0 +1,22 @@
+{
+  "name": "opmo-generator",
+  "version": "1.0.0",
+  "description": "This program takes a csv file and generates Opusmodus code.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yuichkun/opmo-generator.git"
+  },
+  "author": "Yuichi Yogo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuichkun/opmo-generator/issues"
+  },
+  "homepage": "https://github.com/yuichkun/opmo-generator#readme"
+}
