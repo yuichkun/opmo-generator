@@ -1,3 +1,4 @@
+import * as util from 'util';
 const black   = '\u001b[30m';
 const red     = '\u001b[31m';
 const green   = '\u001b[32m';
@@ -21,15 +22,14 @@ export const Logger = {
     console.time("TIME");
     this.line();
   },
-  readCSV : function(csvPath:any,data:any){
+  readCSV : function(csvPath:any,data:any[]){
     console.log('READING: CSV file from ' + csvPath + "\n");
-    console.log('Raw Data: \n' + data);
+    console.log(util.inspect(data, {maxArrayLength: 4, showHidden: true, depth: 1}));
     this.line();
   },
   convertToJSON : function(obj:any){
     console.log('CONVERTING: CSV file into JSON\n');
-    console.log('JSON Data:');
-    console.log(obj);
+    console.log(util.inspect(obj, {colors: true, maxArrayLength: 4, showHidden: true, depth: 1}));
     this.line();
   },
   genSnippet : function(fileName:any){
