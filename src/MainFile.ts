@@ -4,7 +4,6 @@ import { SHOWMIDI, SHOWMUSICXML, genLoader, genCompiler } from './constants';
 export class MainFile implements OpmoFile {
     public name: string = "main";
     public content: string;
-
     constructor(score: IScore){
         const fileNames = this.getFileNames(score); 
         this.content = this.genContent([

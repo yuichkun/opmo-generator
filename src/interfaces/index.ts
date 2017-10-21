@@ -3,14 +3,13 @@ export interface IConfig {
     opmoUtilPath: string;
     outDir: string;
 }
+export interface IScore{
+  time: string[];
+  insts: IInst[];
+}
 export interface IInst {
   name: string;
   content: string[];
-}
-export interface IScore{
-  time: string[];
-  scale: string[];
-  insts: IInst[];
 }
 export interface OpmoFile {
     content: string;
