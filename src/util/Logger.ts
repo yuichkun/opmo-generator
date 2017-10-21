@@ -8,7 +8,6 @@ const magenta = '\u001b[35m';
 const cyan    = '\u001b[36m';
 const white   = '\u001b[37m';
 const reset   = '\u001b[0m';
-
 const startEndCl = magenta;
 const lineCl = green;
 const fileNameCl = blue;
@@ -22,27 +21,27 @@ export const Logger = {
     console.time("TIME");
     this.line();
   },
-  readCSV : function(csvPath:any,data:any[]){
-    console.log('READING: CSV file from ' + csvPath + "\n");
-    console.log(util.inspect(data, {maxArrayLength: 4, showHidden: true, depth: 1}));
+  readCSV : function(csvPath:string, csv:any[]){
+    log('READING', `CSV file from ${csvPath}`);
+    console.log(util.inspect(csv, {colors: true, maxArrayLength: 4, showHidden: true, depth: 1}));
     this.line();
   },
   convertToJSON : function(obj:any){
-    console.log('CONVERTING: CSV file into JSON\n');
-    console.log(util.inspect(obj, {colors: true, maxArrayLength: 4, showHidden: true, depth: 1}));
+    log('CONVERTING', "CSV file into JSON");
+    console.log(util.inspect(obj, {colors: true, maxArrayLength: 4, showHidden: true, depth: 2}));
     this.line();
   },
   genSnippet : function(fileName:any){
     console.log('GENERATING: an opmo file for ' + fileNameCl + fileName + reset);
     this.line();
   },
-  showOpmo : function(opmo:any,name:any){
-    console.log("GENERATED: " + fileNameCl + name + reset + "\n");
-    console.log(cyan + opmo + reset);
+  showOpmo : function(content:string, name:string){
+    log('GENERATED: ', `${fileNameCl}${name}${reset}`);
+    console.log(cyan + content + reset);
     this.line();
   },
-  export : function(content:any,path:any){
-    console.log("EXPORTED: " + "a " + fileNameCl + content + reset + " file to " + path);
+  export : function(name:string, path:string){
+    log("EXPORTED", fileNameCl + name + reset + " file to " + path);
     this.line();
   },
   exit : function(){
@@ -50,4 +49,8 @@ export const Logger = {
     console.timeEnd("TIME")
     this.line();
   }
+}
+
+function log(systemType:string, content:string){
+  console.log(`${magenta}${systemType} ${reset}${content}`);
 }
