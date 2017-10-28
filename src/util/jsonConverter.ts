@@ -4,13 +4,13 @@ export const convert = (csvPath:string, csv:any[]) => {
   Logger.readCSV(csvPath, csv);
   let score:IScore = <IScore>{};
   score.time = extractData(csv[0]);
-  const rowInsts = csv.slice(2, csv.length);
+  const rowInsts = csv.slice(1, csv.length);
   score.insts = rowInsts.map( rowInst => {
     const name = rowInst[0];
-    const content = rowInst.slice(1, rowInst.length)
+    const actions = rowInst.slice(1, rowInst.length)
     return {
       name,
-      content
+      actions
     };
   } );
   Logger.convertToJSON(score);

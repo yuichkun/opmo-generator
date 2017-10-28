@@ -17,15 +17,23 @@ export function isValidConfig(obj:any): obj is IConfig{
 } 
 
 export function isValidInst(inst: IInst, time: string[]): boolean{
-    const { name, content } = inst;
+    const { name, actions } = inst;
     if(!name){
         throw new Error(`Instrument name is invalid in ${name}`);
     }
-    if(!content || content.length === 0){
-        throw new Error(`Content of ${name} does not have anything. ${content}`)
+    if(!actions || actions.length === 0){
+        throw new Error(`Content of ${name} does not have anything. ${actions}`)
     }
-    if(content.length !== time.length){
-        throw new RangeError(`Length of ${name}(${content.length}) does not match the length of music(${time.length})`);
+    if(actions.length !== time.length){
+        throw new RangeError(`Length of ${name}(${actions.length}) does not match the length of music(${time.length})`);
+    }
+    return true;
+}
+
+export function notUndefined(data:any):boolean{
+    if (data === undefined) {
+        console.log("could not read csv");
+        return false;
     }
     return true;
 }

@@ -9,7 +9,7 @@ interface IScore{
 }
 interface IInst {
   name: string;
-  content: string[];
+  actions: string[];
 }
 interface OpmoFile {
     content: string;
