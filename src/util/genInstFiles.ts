@@ -1,4 +1,3 @@
-import { IScore, OpmoFile } from '../interfaces';
 import { isValidInst } from '../validator';
 import { InstFile } from '../InstFile';
 

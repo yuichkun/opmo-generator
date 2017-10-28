@@ -1,4 +1,3 @@
-import { IScore, OpmoFile } from "./interfaces";
 import { MainFile } from './MainFile';
 import { genInstFiles } from './util';
 

@@ -1,4 +1,3 @@
-import { IScore, OpmoFile } from './interfaces';
 import { SHOWMIDI, SHOWMUSICXML, genLoader, genCompiler } from './constants';
 
 export class MainFile implements OpmoFile {

@@ -1,11 +1,8 @@
-import { IConfig, IInst } from '../interfaces';
-
 enum PrimitiveType{
     String = "string",
     Number = "number",
     Boolean = "boolean"
 }
-
 export function isValidConfig(obj:any): obj is IConfig{
     const hasValidCSVPath = typeof obj.csvPath === PrimitiveType.String;
     if(!hasValidCSVPath){
