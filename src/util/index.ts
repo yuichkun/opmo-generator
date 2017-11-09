@@ -1,4 +1,4 @@
-import { Exporter } from "./Exporter";
+import { exportAll } from "./exportAll";
 import { convert } from "./jsonConverter";
 import { Logger } from "./Logger";
 import { genInstFiles } from "./genInstFiles";
@@ -9,4 +9,4 @@ export function addTimeSigs(timeSigA: string, timeSigB: string): string{
     return sum.toString();
 }
 
-export { Exporter, convert, Logger, genInstFiles};
+export { exportAll, convert, Logger, genInstFiles};

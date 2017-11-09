@@ -1,9 +1,10 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import * as csvParse from 'csv-parse';
 import { convert } from './util';
 import { isValidConfig, notUndefined } from './validator';
 import { Generator } from './Generator';
-import { Exporter } from './util';
+import { exportAll } from './util';
 
 export const start = (config: any) => {
     if (isValidConfig(config)) {
@@ -15,7 +16,8 @@ export const start = (config: any) => {
                 if( notUndefined(data) ){
                     const json = convert(csvPath, data);
                     const opmoFiles = Generator(json);
-                    Exporter('example/opmo', opmoFiles);
+                    const exportPath = path.dirname(require.main.filename) + outDir;
+                    exportAll(opmoFiles).to(exportPath);
                 }
             })
         );
