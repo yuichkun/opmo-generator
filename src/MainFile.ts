@@ -23,7 +23,7 @@ export class MainFile implements OpmoFile {
         const { insts } = score;
         const fileNames: string = insts.reduce(
             (accum, inst) => {
-                return accum + inst.name + " ";
+                return `${accum} "${inst.name}" `;
             }, ""
         );
         return fileNames;
