@@ -1,9 +1,8 @@
 const OpmoGenerator = require('../lib/index.js');
-const csvPath = __dirname + "/hoge.csv";
 
 const config = {
-    csvPath,
-    outDir: "lka" 
+    csvPath: __dirname + "/test.csv",
+    outDir: "/opmo"
 }
 
 OpmoGenerator.start(config);
