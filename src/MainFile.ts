@@ -4,10 +4,12 @@ export class MainFile implements OpmoFile {
     public name: string = "main";
     public content: string;
     constructor(score: IScore){
-        const fileNames = this.getFileNames(score); 
+        const instNames = this.extractNames(score);
+        const fileNames = instNames.string;
+        const symbolNames = instNames.symbol;
         this.content = this.genContent([
             genLoader(fileNames), 
-            genCompiler(fileNames),
+            genCompiler(symbolNames),
             SHOWMIDI,
             SHOWMUSICXML
         ]);
@@ -19,13 +21,27 @@ export class MainFile implements OpmoFile {
             }, ""
         );
     }
-    private getFileNames(score: IScore){
+    private extractNames(score: IScore){
         const { insts } = score;
-        const fileNames: string = insts.reduce(
-            (accum, inst) => {
-                return `${accum} "${inst.name}" `;
-            }, ""
-        );
-        return fileNames;
+        return {
+            string:(
+                ()=>{
+                    return insts.reduce(
+                        (accum, inst)=>{
+                            return `${accum} "${inst.name}"`;
+                        }, ""
+                    )
+                }
+            )(),
+            symbol:(
+                ()=>{
+                    return insts.reduce(
+                        (accum, inst)=>{
+                            return `${accum} ${inst.name}`
+                        },""
+                    );
+                }
+            )(),
+        };
     }
 }
