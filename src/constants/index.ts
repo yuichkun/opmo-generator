@@ -3,12 +3,12 @@ export const SHOWMUSICXML =
 `;
 
 export const SHOWMIDI =
-`(display-midi *last-score*)
+`(display-midi *last-score* :display :quick-view)
 `;
 
 export const genLoader = (files: string)=>{
 const loader =
-`(let ((files '(${files})))
+`(let ((files '( "util" ${files})))
   (loop for file in files do
     (load (merge-pathnames file *load-truename*))
   )
@@ -20,7 +20,7 @@ const loader =
 export const genCompiler = (files: string) => {
 const compiler = 
 `
-(setf path (merge-pathnames "XML/bundle.xml" *load-truename*))
+(setf path (merge-pathnames "../XML/bundle.xml" *load-truename*))
 (compile-score '(${files}) :output :musicxml :file path)
 `;
   return compiler;
