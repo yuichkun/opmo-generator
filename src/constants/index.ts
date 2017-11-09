@@ -70,7 +70,7 @@ export const genScore = (name:string):string => {
            (:key-signature 'atonal
             :time-signature '(4 4)
             :tempo 120)
-(${name} omn: omn)
+(${name} :omn omn)
 )
 ` 
 return score;
