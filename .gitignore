@@ -1,3 +1,5 @@
 node_modules
 example/opmo
+!example/opmo/util.opmo
+example/XML
 lib
