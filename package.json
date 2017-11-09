@@ -7,8 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "rm example/opmo/*; npm run build; node example/test.js",
-    "build": "tsc"
+    "test": "npm run rm; npm run build; node example/test.js",
+    "build": "tsc",
+    "rm": "rm -rf example/opmo/*"
   },
   "repository": {
     "type": "git",
