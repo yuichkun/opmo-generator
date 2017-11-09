@@ -1,6 +1,5 @@
 interface IConfig {
     csvPath: string;
-    opmoUtilPath: string;
     outDir: string;
 }
 interface IScore{
