@@ -7,8 +7,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "example/index.js",
-    "build": "tsc" 
+    "test": "npm run build; node example/test.js",
+    "build": "tsc",
+    "rm": "rm -rf example/opmo/*"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,13 @@
   },
   "homepage": "https://github.com/yuichkun/opmo-generator#readme",
   "devDependencies": {
+    "@types/csv-parse": "^1.1.10",
+    "@types/mathjs": "0.0.35",
+    "@types/node": "^8.0.34",
     "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "csv-parse": "^1.2.4",
+    "mathjs": "^3.16.5"
   }
 }
